@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>끝말잇기</title>
+    </head>
+    <body>
+        <div><span id="order">1</span>번째 참자가</div>
+        <div>제시어: <span id ="word"></span></div>
+        <input type="text">
+        <button>입력</button>
+        <button class ="hello">입력2</button>
+        <button class ="hello">버튼3</button>
+        <script>
+            // const $input = document.querySelector('input');
+            // $input.value = 123
+            // $input.focus();
+            // console.log($input);
+            // console.log($input.value);
+
+            const $$button = document.querySelectorAll('button');
+            console.log($$button)
+
+            const $order = document.querySelector('#order');
+            console.log($order.textContent);
+
+            $order.textContent = 2;
+            console.log(typeof $order.textContent);
+
+            const $div = document.querySelector('div');
+            console.log($div.textContent);
+            console.log($div.innerHTML);
+
+            // $div.innerHTML = '';
+            // const $button = document.querySelector('button');
+            // $button.innerHTML = '<b>굵게</b>';
+
+            const $$buttons = document.querySelectorAll('.hello'); 
+            console.log($$buttons);
+
+            const $span = document.querySelector('div span');
+            console.log($span);
+
+            const onClickButton = () => {
+                console.log('버튼 클릭');
+                console.log(this);
+            };
+            const $button = document.querySelector('button');
+            $button.addEventListener('click', onClickButton);
+
+            const onInput = (event) => {
+                console.log('글자 입력', event.target.value);
+            };
+            const $input = document.querySelector('input');
+            $input.addEventListener('input', onInput);
+          
+            // document.querySelector('button').addEventListener('click', () => {
+            //     console.log('버튼 클릭');
+            // });
+        //오류가 발생하는 경우다.
+        //   $button.addEventListener('click', () => {
+        //     console.log('버튼 클릭');
+        //   });
+        //   $button.removeEventListener('click', () => {
+        //     console.log('버튼 클릭');
+        //   })
+        //키보드 이벤트
+        window.addEventListener('keyup', (event) => {
+            console.log('keyup', event);
+        });
+        window.addEventListener('keydown', (event) => {
+            console.log('keydown', event);
+        });
+        //마우스 이벤트
+        window.addEventListener('mousedown', (event) => {
+            console.log('mousedown', event);
+        })
+        window.addEventListener('mousemove', (event) => {
+            console.log('mousemove', event);
+        })
+        window.addEventListener('mouseup', (event) => {
+            console.log('mouseup', event);
+        })
+
+        //마우스 우클릭 이벤트
+        function onRightClick(event) {
+            event.preventDefault();
+            console.log('우클릭');
+        }
+        $button.addEventListener('contextmenu', onRightClick);
+        </script>
+    </body>
+</html>

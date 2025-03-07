@@ -1,0 +1,87 @@
+<html>
+    <body>
+        <table border="1">
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+        </table>
+        <table>
+            <form action="" method="get" id="form">
+                <input type="text" name="name" id="name" required/>
+                <input type="text" name="email" id="email" required/>
+                <button name="button" type="submit">구독</button>
+            </form>
+        </table>
+        <script>
+            document.querySelector('td').addEventListener('click', () => {
+                console.log('td');
+                console.log(event.target);
+                console.log(event.currentTarget);
+            }, true);
+            document.querySelector('tr').addEventListener('click', () => {
+                console.log('tr');
+                console.log(event.target);
+                console.log(event.currentTarget);
+            },true);
+            document.querySelector('table').addEventListener('click', () => {
+                console.log('table');
+                console.log(event.target);
+                console.log(event.currentTarget);
+            },true);
+            console.log(document.querySelector('tr').rowIndex);
+            console.log(document.querySelectorAll('td')[2].cellIndex);
+
+            //부모와 자식 태그 찾기
+            console.log(document.querySelector('td').parentNode);
+            console.log(document.querySelector('tr').children);
+            
+            const $form = document.querySelector('#form');
+            $form[0];
+            $form[1];
+            $form[2];
+
+            //새로운 태그 만들기
+            const $button  = document.createElement('button');
+            $button.classList.add('login');
+            $button.style.fontSize = '15px';
+            $button.textContent = '버튼';
+
+            document.body.append($button);
+            
+            const $table = document.createElement('table');
+            $table.border = 1;
+            for(let i = 0; i < 4; i++){
+                const $tr = document.createElement('tr');
+                $table.append($tr);
+                for(let j = 0; j < 4; j++){
+                    const $td = document.createElement('td');
+                    $td.textContent = '칸';
+                    $tr.append('$td');
+                }
+            }
+            document.body.append($table); //이거 잘못쓰면 21번 돌아감
+
+            const $button1 = document.createElement('button');
+            const $img = document.createElement('img');
+            const $fragment = document.createDocumentFragment();
+            $fragment.append($button, '텍스트', $img);
+            document.body.append($fragment);
+
+            //window객체
+            const number = prompt('몇 명이 참가하나요');
+            Number(number);
+            confirm('확인이나 취소를 눌러 보세요.')
+
+            //수학
+            Math.ceil(5.2)
+            Math.round(4.5)
+            Math.floor(2.8)
+
+            Math.max(5,3,6)
+            Math.min(2, 5, 8, 4)
+            Math.sqrt(25)
+        </script>
+    </body>
+</html>
